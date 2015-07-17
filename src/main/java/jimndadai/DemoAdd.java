@@ -1,4 +1,4 @@
-package jim.nd.adai;
+package jimndadai;
 
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 import static org.springframework.data.mongodb.core.query.Query.query;

@@ -1,4 +1,4 @@
-package jim.nd.adai;
+package jimndadai;
 
 import java.net.UnknownHostException;
 
