@@ -7,6 +7,7 @@ public class GroupPojo {
 	private String field1;
 	private String field2;
 	private String field3;
+	// 用户统计条数
 	private int num;
 
 	public String getField1() {
