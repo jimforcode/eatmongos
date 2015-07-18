@@ -20,6 +20,11 @@ public class DemoAdd {
 		AddPojo a = template.findOne(query(where("name").is("jim")),
 				AddPojo.class);
 		System.out.println(a);
+		
+		
+		
+		
+		
 		template.dropCollection("demoAdd");
 	}
 }
