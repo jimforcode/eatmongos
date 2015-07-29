@@ -15,6 +15,7 @@ import org.springframework.data.mongodb.core.mapreduce.GroupByResults;
 import com.mongodb.Mongo;
 
 import demo.pojo.GroupPojo;
+import demo.pojo.SubGroupPojo;
 
 /*
  *
@@ -24,11 +25,28 @@ import demo.pojo.GroupPojo;
 public class DemoGroup {
 	public static void main(String[] args) throws UnknownHostException {
 		MongoOperations template = new MongoTemplate(new Mongo(), "database");
-		template.insert(new GroupPojo("f1", "f2", "f3", 1));
-		template.insert(new GroupPojo("f1", "f22", "f33", 1));
-		template.insert(new GroupPojo("f1", "f22", "f3", 1));
-		template.insert(new GroupPojo("f1", "f2", "f3", 1));
-		template.insert(new GroupPojo("f1", "f2", "f3", 1));
+
+		List<SubGroupPojo> subGroup1 = new ArrayList<SubGroupPojo>();
+		subGroup1.add(new SubGroupPojo("s1", 1));
+		subGroup1.add(new SubGroupPojo("s2", 1));
+		List<SubGroupPojo> subGroup2 = new ArrayList<SubGroupPojo>();
+		subGroup2.add(new SubGroupPojo("s11", 1));
+		subGroup2.add(new SubGroupPojo("s22", 1));
+		List<SubGroupPojo> subGroup3 = new ArrayList<SubGroupPojo>();
+		subGroup3.add(new SubGroupPojo("s111", 1));
+		subGroup3.add(new SubGroupPojo("s222", 1));
+		List<SubGroupPojo> subGroup4 = new ArrayList<SubGroupPojo>();
+		subGroup4.add(new SubGroupPojo("s1111", 1));
+		subGroup4.add(new SubGroupPojo("s2222", 1));
+		List<SubGroupPojo> subGroup5 = new ArrayList<SubGroupPojo>();
+		subGroup5.add(new SubGroupPojo("s1111", 1));
+		subGroup5.add(new SubGroupPojo("s22222", 1));
+
+		template.insert(new GroupPojo("f1", "f2", "f3", subGroup1, 1));
+		template.insert(new GroupPojo("f1", "f22", "f33", subGroup2, 1));
+		template.insert(new GroupPojo("f1", "f22", "f3", subGroup3, 1));
+		template.insert(new GroupPojo("f1", "f2", "f3", subGroup4, 1));
+		template.insert(new GroupPojo("f1", "f2", "f3", subGroup5, 1));
 
 		GroupByResults<GroupPojo> results = template
 				.group(where("field1").is("f1"),
