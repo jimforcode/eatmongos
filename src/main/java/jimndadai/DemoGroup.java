@@ -73,4 +73,5 @@ public class DemoGroup {
 		template.dropCollection("groupPojo");
 	}
 
+
 }
